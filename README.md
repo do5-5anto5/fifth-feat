@@ -33,13 +33,9 @@ This project offers an initial template for Android application development, wit
 
 ## Contact
 
-* **Email:** dos.santos.2k23@gmail.com
-
-
-
+* **Email:** dos.santos.2k23@gmail.com <br><br><br><br>
 ___
-
-### Portuguese version bellow
+### (Portuguese version bellow)
 ___
 
 # Fifth Feat - Template Inicial para Pequenos Negócios
