@@ -34,6 +34,10 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+
+    viewBinding {
+        enable = true
+    }
 }
 
 dependencies {
@@ -43,6 +47,12 @@ dependencies {
     implementation(libs.material)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
+
+    // Splash Screen API
+    implementation(libs.androidx.core.splashscreen)
+
+    // Lottie https://airbnb.io/lottie/#/android
+    implementation(libs.lottie)
 
     // Firebase
     implementation(platform(libs.firebase.bom))
