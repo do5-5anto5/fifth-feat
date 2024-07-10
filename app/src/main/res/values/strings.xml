@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Fifth Feat</string>
+
+    <!--OnboardingFragment-->
+    <string name="onboarding_fragment_button_start">Iniciar</string>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
