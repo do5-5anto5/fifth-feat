@@ -15,6 +15,7 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:cardCornerRadius="20dp"
         app:cardElevation="0dp"
         app:cardBackgroundColor="@android:color/transparent"
         app:strokeColor="@android:color/transparent">
@@ -34,8 +35,6 @@
         android:layout_height="wrap_content"
         style="@style/ThemePrimaryButton"
         android:text="@string/onboarding_fragment_button_start"
-        android:textColor="@color/primary"
-        android:textAllCaps="false"
         app:backgroundTint="@color/tertiary"
         android:layout_marginHorizontal="24dp"
         android:layout_marginBottom="32dp"
