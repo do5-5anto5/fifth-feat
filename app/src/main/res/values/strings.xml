@@ -18,6 +18,7 @@
     <string name="text_hint_edit_email_register_fragment">Email</string>
     <string name="text_hint_edit_password_register_fragment">Senha</string>
     <string name="text_button_sign_up_register_fragment">Inscrever-se</string>
+    <string name="text_continue_social_network_register_fragment">ou continuar com</string>
     <string name="text_email_empty_register_fragment">Digite um e-mail válido</string>
     <string name="text_password_empty_register_fragment">Digite uma senha</string>
 
