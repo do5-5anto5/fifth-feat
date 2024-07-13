@@ -18,7 +18,8 @@
         app:cardCornerRadius="20dp"
         app:cardElevation="0dp"
         app:cardBackgroundColor="@android:color/transparent"
-        app:strokeColor="@android:color/transparent">
+        app:strokeWidth="2dp"
+        app:strokeColor="@color/tertiary">
 
     <ImageView
         android:id="@+id/iv_logo_splash"
