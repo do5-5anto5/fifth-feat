@@ -6,7 +6,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.fifthfeat.databinding.FragmentAuthHomeBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class AuthHomeFragment : Fragment() {
     private var _binding: FragmentAuthHomeBinding? = null
     private val binding get() = _binding!!
