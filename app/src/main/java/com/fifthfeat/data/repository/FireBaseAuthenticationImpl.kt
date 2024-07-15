@@ -2,9 +2,10 @@ package com.fifthfeat.data.repository
 
 import com.fifthfeat.domain.repository.FireBaseAuthentication
 import com.google.firebase.auth.FirebaseAuth
+import javax.inject.Inject
 import kotlin.coroutines.suspendCoroutine
 
-class FireBaseAuthenticationImpl(
+class FireBaseAuthenticationImpl @Inject constructor(
     private val firebaseAuth: FirebaseAuth
 ) : FireBaseAuthentication {
     override suspend fun login(email: String, password: String) {
