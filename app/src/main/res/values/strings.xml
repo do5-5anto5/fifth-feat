@@ -1,6 +1,10 @@
 <resources>
     <string name="app_name">Fifth Feat</string>
 
+    <!--Generics-->
+    <string name="text_password_empty">Digite sua senha</string>
+    <string name="text_email_invalid">Digite um email válido</string>
+
     <!--OnboardingFragment-->
     <string name="onboarding_fragment_button_start">Iniciar</string>
 
