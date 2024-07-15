@@ -20,6 +20,10 @@ This project offers an initial template for Android application development, wit
       * enables easy integration of high-quality animations into the application, enhancing user experience
     * Hilt 
       * dependency injection in the project
+    * Lifecycle
+      * Manages the lifecycle of app components, ensuring efficient resource handling.
+    * Navigation
+      * Simplifies in-app navigation and manages transitions between screens.
 
 ## Roadmap
 
@@ -65,6 +69,10 @@ Este projeto oferece um template inicial para desenvolvimento de aplicativos And
       * permite a fácil integração de animações de alta qualidade no aplicativo, melhorando a experiência do usuário
     * Hilt
       * facilita o gerenciamento de dependências, tornando o código mais modular, testável e manutenível
+    * Lifecycle
+      * Gerencia o ciclo de vida dos componentes do app, garantindo o uso eficiente de recursos.
+    * Navigation
+      * Simplifica a navegação dentro do app e gerencia as transições entre telas.
 
 ## Roadmap
 
