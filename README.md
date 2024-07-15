@@ -8,11 +8,18 @@ This project offers an initial template for Android application development, wit
 
 ## Architecture and Development
 
+* **Architecture**
+    * MVVM
 * **Cloud Services:**
-  *Firebase
-* Authentication
-* Realtime Database
-  *Storage
+    * Firebase
+      * Authentication
+      * Realtime Database
+      * Storage
+* **Dependencies**
+    * Lottie 
+      * enables easy integration of high-quality animations into the application, enhancing user experience
+    * Hilt 
+      * dependency injection in the project
 
 ## Roadmap
 
@@ -50,9 +57,14 @@ Este projeto oferece um template inicial para desenvolvimento de aplicativos And
 
 * **Serviços de Nuvem:**
     * Firebase
-        * Autenticação
-        * Realtime Database
-        * Storage
+      * Autenticação
+      * Realtime Database
+      * Storage
+* **Dependências**
+    * Lottie
+      * permite a fácil integração de animações de alta qualidade no aplicativo, melhorando a experiência do usuário
+    * Hilt
+      * facilita o gerenciamento de dependências, tornando o código mais modular, testável e manutenível
 
 ## Roadmap
 
