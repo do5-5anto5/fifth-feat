@@ -79,6 +79,10 @@ dependencies {
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
 
+    //Glide
+    implementation(libs.github.glide)
+    implementation(libs.ksp)
+
     //Script Runtime
     implementation(kotlin("script-runtime"))
 }
