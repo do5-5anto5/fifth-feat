@@ -63,7 +63,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textStyle="bold"
-        android:text="Deixe a tecnologia\nimpulsionar seu negócio.\nSimples assim."
+        android:text="@string/slogan_onboard_fragment"
         android:textAlignment="center"
         android:textColor="@color/secondary"
         android:textSize="20sp"

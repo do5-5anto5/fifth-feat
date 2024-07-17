@@ -40,5 +40,8 @@
     <string name="text_button_forgot_fragment">Recuperar conta</string>
     <string name="email_sent_success_forgot_fragment">Email de recuperação enviado</string>
 
+    <!--    SplashFragment-->
+    <string name="slogan_onboard_fragment">Deixe a tecnologia\nimpulsionar seu negócio.\nSimples assim.</string>
+
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
