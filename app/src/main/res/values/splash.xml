@@ -2,7 +2,7 @@
 <resources>
     <style name="Theme.App.Starting" parent="Theme.SplashScreen">
         <item name="windowSplashScreenBackground">@color/white</item>
-        <item name="windowSplashScreenAnimatedIcon">@drawable/logo_splash</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/logo</item>
         <item name="postSplashScreenTheme">@style/Theme.FifthFeat</item>
         <item name="android:windowBackground">@color/primary</item>
     </style>
