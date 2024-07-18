@@ -149,7 +149,7 @@
         </LinearLayout>
 
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/btn_password_login"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="24dp"
@@ -173,7 +173,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/button2"
+            app:layout_constraintTop_toBottomOf="@+id/btn_password_login"
             app:layout_constraintVertical_bias="1.0">
 
             <TextView
@@ -181,13 +181,19 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:text="@string/text_dont_have_an_account_home_auth_fragment"
-                android:textColor="@color/primary" />
+                android:textColor="@color/secondary"
+                android:textSize="18sp"
+                android:layout_gravity="bottom"/>
 
             <TextView
+                android:id="@+id/btn_register"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/text_sign_up_home_auth_fragment"
-                android:textColor="@color/primary" />
+                android:textColor="@color/tertiary"
+                android:layout_marginStart="8dp"
+                android:textSize="20sp"
+                android:layout_gravity="bottom"/>
 
         </LinearLayout>
 
