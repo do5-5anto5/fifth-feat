@@ -14,7 +14,9 @@ import com.fifthfeat.util.StateView
 import com.fifthfeat.util.hideKeyboard
 import com.fifthfeat.util.isEmailValid
 import com.fifthfeat.util.showSnackBar
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class RegisterFragment : Fragment() {
 
     private var _binding: FragmentRegisterBinding? = null
@@ -36,7 +38,7 @@ class RegisterFragment : Fragment() {
     }
 
     private fun initListeners() {
-        validateData()
+        binding.btnRegister.setOnClickListener { validateData() }
 
         Glide
             .with(requireContext())

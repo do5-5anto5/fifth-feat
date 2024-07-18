@@ -19,7 +19,7 @@ class RegisterViewModel @Inject constructor(
 
             registerUseCase.invoke(email, password)
 
-            emit(StateView.Success(null))
+            emit(StateView.Success(Unit))
         } catch (e: Exception) {
             e.printStackTrace()
             emit(StateView.Error(e.message))
