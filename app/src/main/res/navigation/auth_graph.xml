@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/auth_graph"
+    app:startDestination="@id/splashFragment2">
+
+    <fragment
+        android:id="@+id/onBoardingFragment"
+        android:name="com.fifthfeat.presenter.onboarding.OnBoardingFragment"
+        android:label="fragment_on_boarding"
+        tools:layout="@layout/fragment_on_boarding" >
+        <action
+            android:id="@+id/action_onBoardingFragment_to_authHomeFragment"
+            app:destination="@id/authentication" />
+        <action
+            android:id="@+id/action_onBoardingFragment_to_authentication"
+            app:destination="@id/authentication" />
+    </fragment>
+    <navigation android:id="@+id/authentication"
+        app:startDestination="@id/authHomeFragment">
+        <fragment
+            android:id="@+id/authHomeFragment"
+            android:name="com.fifthfeat.presenter.authentication.home.AuthHomeFragment"
+            android:label="fragment_auth_home"
+            tools:layout="@layout/fragment_auth_home" >
+            <action
+                android:id="@+id/action_authHomeFragment_to_loginFragment"
+                app:destination="@id/loginFragment" />
+            <action
+                android:id="@+id/action_authHomeFragment_to_registerFragment"
+                app:destination="@id/registerFragment" />
+        </fragment>
+        <fragment
+            android:id="@+id/forgotFragment"
+            android:name="com.fifthfeat.presenter.authentication.forgot.ForgotFragment"
+            android:label="fragment_forgot"
+            tools:layout="@layout/fragment_forgot" />
+        <fragment
+            android:id="@+id/loginFragment"
+            android:name="com.fifthfeat.presenter.authentication.login.LoginFragment"
+            android:label="fragment_login"
+            tools:layout="@layout/fragment_login" >
+            <action
+                android:id="@+id/action_loginFragment_to_forgotFragment"
+                app:destination="@id/forgotFragment" />
+        </fragment>
+        <fragment
+            android:id="@+id/registerFragment"
+            android:name="com.fifthfeat.presenter.authentication.register.RegisterFragment"
+            android:label="fragment_register"
+            tools:layout="@layout/fragment_register" />
+    </navigation>
+    <fragment
+        android:id="@+id/splashFragment2"
+        android:name="com.fifthfeat.presenter.splash.SplashFragment"
+        android:label="fragment_splash"
+        tools:layout="@layout/fragment_splash" >
+        <action
+            android:id="@+id/action_splashFragment2_to_onBoardingFragment"
+            app:destination="@id/onBoardingFragment" />
+    </fragment>
+</navigation>
