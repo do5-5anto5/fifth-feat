@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
 import com.fifthfeat.R
 import com.fifthfeat.databinding.FragmentLoginBinding
@@ -40,8 +41,11 @@ class LoginFragment : Fragment() {
 
     private fun initListeners() {
         with (binding) {
-            button.setOnClickListener {
+            btnLogin.setOnClickListener {
                 validateData()
+            }
+            btnForgotPassword.setOnClickListener{
+                findNavController().navigate(R.id.action_loginFragment_to_forgotFragment)
             }
             Glide
                 .with(requireContext())
