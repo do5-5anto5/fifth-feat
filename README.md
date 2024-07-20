@@ -22,8 +22,12 @@ This project offers an initial template for Android application development, wit
       * dependency injection in the project
     * Lifecycle
       * Manages the lifecycle of app components, ensuring efficient resource handling.
+  * Lifecycle Livedata:
+      * Facilitates the integration of LiveData with the lifecycle of application components.
     * Navigation
       * Simplifies in-app navigation and manages transitions between screens.
+    * Google Play Services Authentication
+        * Simplifies Google authentication and access to Google APIs in Android applications.
 
 ## Roadmap
 
@@ -71,8 +75,12 @@ Este projeto oferece um template inicial para desenvolvimento de aplicativos And
       * facilita o gerenciamento de dependências, tornando o código mais modular, testável e manutenível
     * Lifecycle
       * Gerencia o ciclo de vida dos componentes do app, garantindo o uso eficiente de recursos.
+  * Lifecycle Livedata:
+      * Facilita a integração do LiveData com o ciclo de vida dos componentes do aplicativo
     * Navigation
       * Simplifica a navegação dentro do app e gerencia as transições entre telas.
+    * Google Play Services Authentication
+      * Simplifica a autenticação com o Google e o acesso a APIs do Google em aplicativos Android.
 
 ## Roadmap
 
