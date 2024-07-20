@@ -62,6 +62,9 @@ dependencies {
     implementation(libs.firebase.database)
     implementation(libs.firebase.storage)
 
+    // Google Authentication
+    implementation(libs.play.services.auth)
+
     // Hilt
     implementation(libs.hilt.android)
     ksp(libs.hilt.android.compiler)
@@ -69,6 +72,7 @@ dependencies {
     // Lifecycle
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.lifecycle.viewmodel.savedstate)
+    implementation(libs.androidx.lifecycle.livedata.ktx)
 
     // Navigation
     implementation(libs.androidx.navigation.fragment.ktx)
