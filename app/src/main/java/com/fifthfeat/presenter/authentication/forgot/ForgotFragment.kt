@@ -12,6 +12,7 @@ import com.fifthfeat.R
 import com.fifthfeat.databinding.FragmentForgotBinding
 import com.fifthfeat.util.StateView
 import com.fifthfeat.util.hideKeyboard
+import com.fifthfeat.util.initToolbar
 import com.fifthfeat.util.isEmailValid
 import com.fifthfeat.util.showSnackBar
 import dagger.hilt.android.AndroidEntryPoint
@@ -33,7 +34,7 @@ class ForgotFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        initToolbar(binding.toolbar)
         initListeners()
     }
 
