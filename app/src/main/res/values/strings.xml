@@ -5,6 +5,16 @@
     <string name="text_password_empty">Digite sua senha</string>
     <string name="text_email_invalid">Digite um email válido</string>
 
+    <!--Errors-->
+    <string name="account_not_registered_register_fragment">Nenhuma conta encontrada com este e-mail.</string>
+    <string name="invalid_email_register_fragment">Insira um e-mail válido.</string>
+    <string name="invalid_password_register_fragment">Senha inválida, tente novamente.</string>
+    <string name="email_in_use_register_fragment">Este e-mail já está em uso.</string>
+    <string name="strong_password_register_fragment">Insira uma senha mais forte.</string>
+    <string name="user_not_found">Usuário/dados não cadastrado(s)</string>
+    <string name="invalid_credentials">Login ou senha inválidos</string>
+    <string name="error_generic">Ocorreu um erro, por favor tente novamente mais tarde.</string>
+
     <!--OnboardingFragment-->
     <string name="onboarding_fragment_button_start">Iniciar</string>
 
