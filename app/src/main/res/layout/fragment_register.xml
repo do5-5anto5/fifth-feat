@@ -136,7 +136,7 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/linearLayout3"
+            android:id="@+id/btn_google_register"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
@@ -149,16 +149,6 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/bg_border"
-                android:paddingHorizontal="32dp"
-                android:paddingVertical="16dp"
-                android:src="@drawable/ic_facebook"
-                tools:ignore="ContentDescription" />
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
                 android:background="@drawable/bg_border"
                 android:paddingHorizontal="32dp"
                 android:paddingVertical="16dp"
