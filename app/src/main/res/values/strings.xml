@@ -15,6 +15,12 @@
     <string name="invalid_credentials">Login ou senha inválidos</string>
     <string name="error_generic">Ocorreu um erro, por favor tente novamente mais tarde.</string>
 
+    <!--    BottomBar-->
+    <string name="title_menu_home">Início</string>
+    <string name="title_menu_cart">Carrinho</string>
+    <string name="title_menu_orders">Pedidos</string>
+    <string name="title_menu_profile">Perfil</string>
+
     <!--OnboardingFragment-->
     <string name="onboarding_fragment_button_start">Iniciar</string>
 
