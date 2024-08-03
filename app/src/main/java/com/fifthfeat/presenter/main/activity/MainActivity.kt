@@ -18,8 +18,8 @@ class MainActivity : AppCompatActivity() {
     private lateinit var navController: NavController
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        installSplashScreen()
         super.onCreate(savedInstanceState)
+        installSplashScreen()
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
@@ -36,12 +36,10 @@ class MainActivity : AppCompatActivity() {
 
         navController.addOnDestinationChangedListener { _, destination, _ ->
             binding.bottomBar.isVisible =
-            with (destination.id) {
-                this == R.id.homeFragment ||
-                this == R.id.ordersFragment ||
-                this == R.id.cartFragment ||
-                this == R.id.profileFragment
-            }
+                destination.id == R.id.menu_home ||
+                destination.id == R.id.menu_orders ||
+                destination.id == R.id.menu_cart ||
+                destination.id == R.id.menu_profile
         }
     }
 }
