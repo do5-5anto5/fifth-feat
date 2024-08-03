@@ -3,35 +3,25 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main_graph"
-    app:startDestination="@id/homeFragment">
+    app:startDestination="@id/menu_home">
 
     <fragment
-        android:id="@+id/homeFragment"
+        android:id="@+id/menu_home"
         android:name="com.fifthfeat.presenter.main.HomeFragment"
         android:label="fragment_home"
-        tools:layout="@layout/fragment_home" >
-        <action
-            android:id="@+id/action_homeFragment_to_ordersFragment"
-            app:destination="@id/ordersFragment" />
-        <action
-            android:id="@+id/action_homeFragment_to_cartFragment"
-            app:destination="@id/cartFragment" />
-        <action
-            android:id="@+id/action_homeFragment_to_profileFragment"
-            app:destination="@id/profileFragment" />
-    </fragment>
+        tools:layout="@layout/fragment_home" />
     <fragment
-        android:id="@+id/cartFragment"
+        android:id="@+id/menu_cart"
         android:name="com.fifthfeat.presenter.main.CartFragment"
         android:label="fragment_cart"
         tools:layout="@layout/fragment_cart" />
     <fragment
-        android:id="@+id/ordersFragment"
+        android:id="@+id/menu_orders"
         android:name="com.fifthfeat.presenter.main.OrdersFragment"
         android:label="fragment_orders"
         tools:layout="@layout/fragment_orders" />
     <fragment
-        android:id="@+id/profileFragment"
+        android:id="@+id/menu_profile"
         android:name="com.fifthfeat.presenter.main.ProfileFragment"
         android:label="fragment_profile"
         tools:layout="@layout/fragment_profile" />

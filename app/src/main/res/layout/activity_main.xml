@@ -23,6 +23,7 @@
         android:layout_height="78dp"
         android:background="@drawable/bg_bottom_bar"
         app:labelVisibilityMode="labeled"
+        app:itemIconTint="@color/tertiary"
         app:itemPaddingTop="16dp"
         app:itemPaddingBottom ="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
