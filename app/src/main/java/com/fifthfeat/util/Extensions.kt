@@ -12,6 +12,8 @@ import androidx.fragment.app.Fragment
 import com.fifthfeat.R
 import com.fifthfeat.databinding.BottomSheetLogoutBinding
 import com.fifthfeat.presenter.authentication.activity.AuthActivity
+import com.fifthfeat.presenter.authentication.activity.AuthActivity.Companion.AUTHENTICATION_PARAMETER
+import com.fifthfeat.presenter.authentication.enums.AuthenticationDestinations
 import com.fifthfeat.presenter.main.activity.MainActivity
 import com.fifthfeat.util.FirebaseHelper.Companion.signOut
 import com.google.android.material.bottomsheet.BottomSheetDialog
@@ -60,7 +62,7 @@ fun Fragment.goToMainNavigation() {
     )
 }
 
-fun Fragment.showBottomSheetLogout() {
+fun Fragment.showBottomSheetLogout(destination: AuthenticationDestinations) {
     val bottomSheetLogout = BottomSheetDialog(requireContext(), R.style.BottomSheetDialog)
     val bottomSheetBinding = BottomSheetLogoutBinding.inflate(layoutInflater, null, false)
 
@@ -69,7 +71,7 @@ fun Fragment.showBottomSheetLogout() {
     }
 
     bottomSheetBinding.btnConfirm.setOnClickListener {
-        logout()
+        logout(destination)
         bottomSheetLogout.dismiss()
     }
 
@@ -77,10 +79,11 @@ fun Fragment.showBottomSheetLogout() {
     bottomSheetLogout.show()
 }
 
-fun Fragment.logout() {
+fun Fragment.logout(destination: AuthenticationDestinations) {
     signOut()
-    activity?.finish()
+    requireActivity().finish()
     val intent = Intent(requireContext(), AuthActivity::class.java)
+    intent.putExtra(AUTHENTICATION_PARAMETER, destination)
     startActivity(intent)
 }
 
