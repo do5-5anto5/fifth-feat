@@ -2,6 +2,7 @@ package com.fifthfeat.util
 
 import android.content.Context
 import android.content.Intent
+import android.os.Build
 import android.os.Handler
 import android.os.Looper
 import android.view.inputmethod.InputMethodManager
@@ -15,6 +16,7 @@ import com.fifthfeat.presenter.main.activity.MainActivity
 import com.fifthfeat.util.FirebaseHelper.Companion.signOut
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.snackbar.Snackbar
+import java.io.Serializable
 
 fun Fragment.hideKeyboard() {
     val view = activity?.currentFocus
@@ -80,4 +82,15 @@ fun Fragment.logout() {
     activity?.finish()
     val intent = Intent(requireContext(), AuthActivity::class.java)
     startActivity(intent)
+}
+
+inline fun <reified T : Serializable>
+        Intent.getSerializableCompat(key: String): T? = when {
+
+    Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU ->
+        getSerializableExtra(
+            key,
+            T::class.java
+        )
+    else -> getSerializableExtra(key) as? T
 }
