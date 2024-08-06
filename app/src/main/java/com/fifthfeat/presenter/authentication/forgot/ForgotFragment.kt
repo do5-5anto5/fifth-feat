@@ -7,10 +7,10 @@ import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import com.bumptech.glide.Glide
 import com.fifthfeat.R
 import com.fifthfeat.databinding.FragmentForgotBinding
 import com.fifthfeat.util.StateView
+import com.fifthfeat.util.goToMainNavigation
 import com.fifthfeat.util.hideKeyboard
 import com.fifthfeat.util.initToolbar
 import com.fifthfeat.util.isEmailValid
@@ -42,10 +42,6 @@ class ForgotFragment : Fragment() {
         with (binding) {
             btnForgot.setOnClickListener { validateData() }
         }
-        Glide
-            .with(requireContext())
-            .load(R.drawable.loading)
-            .into(binding.progressLoading)
     }
 
     private fun validateData() {
@@ -66,11 +62,12 @@ class ForgotFragment : Fragment() {
                 }
                 is StateView.Success -> {
                     binding.progressLoading.isVisible = false
-                    showSnackBar("Mock Success")
+                    showSnackBar(getString(R.string.email_sent_success_forgot_fragment))
+                    goToMainNavigation()
                 }
                 is StateView.Error -> {
                     binding.progressLoading.isVisible = false
-                    showSnackBar("Mock Error")
+                    showSnackBar(getString(R.string.error_generic))
                 }
             }
         }

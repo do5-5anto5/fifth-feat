@@ -1,11 +1,15 @@
 package com.fifthfeat.util
 
 import android.content.Context
+import android.content.Intent
+import android.os.Handler
+import android.os.Looper
 import android.view.inputmethod.InputMethodManager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
 import com.fifthfeat.R
+import com.fifthfeat.presenter.main.activity.MainActivity
 import com.google.android.material.snackbar.Snackbar
 
 fun Fragment.hideKeyboard() {
@@ -37,4 +41,15 @@ fun Fragment.initToolbar(toolbar: Toolbar, showBackIcon: Boolean = true) {
     toolbar.setNavigationOnClickListener {
         activity?.onBackPressedDispatcher?.onBackPressed()
     }
+}
+
+fun Fragment.goToMainNavigation() {
+    Handler(Looper.getMainLooper()).postDelayed(
+        {
+            run {
+                startActivity(Intent(requireContext(), MainActivity::class.java))
+                requireActivity().finish()
+            }
+        }, 2500
+    )
 }
