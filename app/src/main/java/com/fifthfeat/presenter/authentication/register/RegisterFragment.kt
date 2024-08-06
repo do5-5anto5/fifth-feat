@@ -5,16 +5,15 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import com.bumptech.glide.Glide
 import com.fifthfeat.R
 import com.fifthfeat.databinding.FragmentRegisterBinding
 import com.fifthfeat.util.FirebaseHelper.Companion.getAuth
 import com.fifthfeat.util.OauthKey.DEFAULT_WEB_CLIENT_ID
 import com.fifthfeat.util.StateView
+import com.fifthfeat.util.goToMainNavigation
 import com.fifthfeat.util.hideKeyboard
 import com.fifthfeat.util.initToolbar
 import com.fifthfeat.util.isEmailValid
@@ -62,13 +61,8 @@ class RegisterFragment : Fragment() {
         binding.btnRegister.setOnClickListener { validateData() }
 
         binding.btnGoogleRegister.setOnClickListener {
-                registerWithGoogle()
-            }
-
-        Glide
-            .with(requireContext())
-            .load(R.drawable.loading)
-            .into(binding.progressLoading)
+            registerWithGoogle()
+        }
     }
 
     private fun validateData() {
@@ -79,8 +73,7 @@ class RegisterFragment : Fragment() {
             if (password.isNotEmpty()) {
                 hideKeyboard()
                 register(email, password)
-            }
-            else {
+            } else {
                 showSnackBar(getString(R.string.text_password_empty))
             }
         } else {
@@ -88,19 +81,22 @@ class RegisterFragment : Fragment() {
         }
     }
 
-    private fun register(email: String, password: String){
+    private fun register(email: String, password: String) {
         viewModel.register(email, password).observe(viewLifecycleOwner) { stateView ->
             when (stateView) {
                 is StateView.Loading -> {
                     binding.progressLoading.isVisible = true
                 }
+
                 is StateView.Success -> {
                     binding.progressLoading.isVisible = false
-                    showSnackBar("Mock success")
+                    goToMainNavigation()
+                    showSnackBar(getString(R.string.text_register_success_register_fragment))
                 }
+
                 is StateView.Error -> {
-                    binding.progressLoading.isVisible = true
-                    showSnackBar("Mock Error")
+                    binding.progressLoading.isVisible = false
+                    showSnackBar(getString(R.string.error_generic))
                 }
             }
         }
@@ -120,21 +116,23 @@ class RegisterFragment : Fragment() {
             val account = task.getResult(ApiException::class.java)
             firebaseAuthWithGoogle(account.idToken)
         } catch (e: ApiException) {
-            Toast.makeText(requireContext(), "login failed", Toast.LENGTH_SHORT).show()
+            showSnackBar(getString(R.string.error_login_google))
         }
     }
 
     private fun firebaseAuthWithGoogle(idToken: String?) {
+        binding.progressLoading.isVisible = true
         val credential = GoogleAuthProvider.getCredential(idToken, null)
         getAuth().signInWithCredential(credential)
             .addOnCompleteListener(
                 requireActivity()
             ) { task ->
                 if (task.isSuccessful) {
-                    Toast.makeText(requireContext(), "SUCCESS", Toast.LENGTH_SHORT).show()
+                    showSnackBar(getString(R.string.text_login_google_success_register_fragment))
+                    binding.progressLoading.isVisible = false
+                    goToMainNavigation()
                 } else {
-                    Toast.makeText(requireContext(), "login failed", Toast.LENGTH_SHORT)
-                        .show()
+                    showSnackBar(getString(R.string.error_register_google))
                 }
             }
     }

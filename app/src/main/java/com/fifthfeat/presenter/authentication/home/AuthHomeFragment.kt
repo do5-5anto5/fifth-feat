@@ -5,13 +5,15 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.fifthfeat.R
 import com.fifthfeat.databinding.FragmentAuthHomeBinding
 import com.fifthfeat.util.FirebaseHelper.Companion.getAuth
 import com.fifthfeat.util.OauthKey.DEFAULT_WEB_CLIENT_ID
+import com.fifthfeat.util.goToMainNavigation
+import com.fifthfeat.util.showSnackBar
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
@@ -51,8 +53,7 @@ class AuthHomeFragment : Fragment() {
     private fun initListeners() {
         with(binding) {
             btnGoogleLogin.setOnClickListener {
-                signInWithGoogle(
-                )
+                signInWithGoogle()
             }
             btnPasswordLogin.setOnClickListener {
                 findNavController().navigate(R.id.action_authHomeFragment_to_loginFragment)
@@ -72,26 +73,28 @@ class AuthHomeFragment : Fragment() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
 
-            val task = GoogleSignIn.getSignedInAccountFromIntent(data)
-            try {
-                val account = task.getResult(ApiException::class.java)
-                firebaseAuthWithGoogle(account.idToken)
-            } catch (e: ApiException) {
-                Toast.makeText(requireContext(), "login failed", Toast.LENGTH_SHORT).show()
-            }
+        val task = GoogleSignIn.getSignedInAccountFromIntent(data)
+        try {
+            val account = task.getResult(ApiException::class.java)
+            firebaseAuthWithGoogle(account.idToken)
+        } catch (e: ApiException) {
+            showSnackBar(getString(R.string.error_login_google))
+        }
     }
 
     private fun firebaseAuthWithGoogle(idToken: String?) {
+        binding.progressLoading.isVisible = true
         val credential = GoogleAuthProvider.getCredential(idToken, null)
         getAuth().signInWithCredential(credential)
             .addOnCompleteListener(
                 requireActivity()
             ) { task ->
                 if (task.isSuccessful) {
-                    Toast.makeText(requireContext(), "SUCCESS", Toast.LENGTH_SHORT).show()
+                    binding.progressLoading.isVisible = false
+                    showSnackBar(getString(R.string.text_login_google_success_onboarding_fragment))
+                    goToMainNavigation()
                 } else {
-                    Toast.makeText(requireContext(), "login failed", Toast.LENGTH_SHORT)
-                        .show()
+                    showSnackBar(getString(R.string.error_login_google))
                 }
             }
     }

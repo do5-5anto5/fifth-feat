@@ -2,6 +2,8 @@ package com.fifthfeat.presenter.authentication.login
 
 import android.content.Intent
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,12 +12,13 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
-import com.bumptech.glide.Glide
 import com.fifthfeat.R
 import com.fifthfeat.databinding.FragmentLoginBinding
+import com.fifthfeat.presenter.main.activity.MainActivity
 import com.fifthfeat.util.FirebaseHelper.Companion.getAuth
 import com.fifthfeat.util.OauthKey.DEFAULT_WEB_CLIENT_ID
 import com.fifthfeat.util.StateView
+import com.fifthfeat.util.goToMainNavigation
 import com.fifthfeat.util.hideKeyboard
 import com.fifthfeat.util.initToolbar
 import com.fifthfeat.util.isEmailValid
@@ -60,7 +63,7 @@ class LoginFragment : Fragment() {
     }
 
     private fun initListeners() {
-        with (binding) {
+        with(binding) {
             btnLogin.setOnClickListener {
                 validateData()
             }
@@ -68,13 +71,9 @@ class LoginFragment : Fragment() {
                 signInWithGoogle(
                 )
             }
-            btnForgotPassword.setOnClickListener{
+            btnForgotPassword.setOnClickListener {
                 findNavController().navigate(R.id.action_loginFragment_to_forgotFragment)
             }
-            Glide
-                .with(requireContext())
-                .load(R.drawable.loading)
-                .into(progressLoading)
         }
     }
 
@@ -100,13 +99,16 @@ class LoginFragment : Fragment() {
                 is StateView.Loading -> {
                     binding.progressLoading.isVisible = true
                 }
+
                 is StateView.Success -> {
                     binding.progressLoading.isVisible = false
-                    showSnackBar("Mock success")
+                    showSnackBar(getString(R.string.text_login_success_fragment))
+                    goToMainNavigation()
                 }
+
                 is StateView.Error -> {
                     binding.progressLoading.isVisible = false
-                    showSnackBar("Mock Error")
+                    showSnackBar(getString(R.string.error_generic))
                 }
             }
         }
@@ -137,10 +139,19 @@ class LoginFragment : Fragment() {
                 requireActivity()
             ) { task ->
                 if (task.isSuccessful) {
-                    Toast.makeText(requireContext(), "SUCCESS", Toast.LENGTH_SHORT).show()
+                    showSnackBar(getString(R.string.text_login_google_success_onboarding_fragment))
+
+                    binding.progressLoading.isVisible = true
+                    Handler(Looper.getMainLooper()).postDelayed(
+                        {
+                            run {
+                                startActivity(Intent(requireContext(), MainActivity::class.java))
+                                requireActivity().finish()
+                            }
+                        }, 1500
+                    )
                 } else {
-                    Toast.makeText(requireContext(), "login failed", Toast.LENGTH_SHORT)
-                        .show()
+                    showSnackBar(getString(R.string.error_login_google))
                 }
             }
     }
