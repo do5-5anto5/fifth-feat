@@ -14,6 +14,8 @@
     <string name="user_not_found">Usuário/dados não cadastrado(s)</string>
     <string name="invalid_credentials">Login ou senha inválidos</string>
     <string name="error_generic">Ocorreu um erro, por favor tente novamente mais tarde.</string>
+    <string name="error_login_google">Login com Google falhou.</string>
+    <string name="error_register_google">Cadastro com Google falhou.</string>
 
     <!--    BottomBar-->
     <string name="title_menu_home">Início</string>
@@ -23,6 +25,7 @@
 
     <!--OnboardingFragment-->
     <string name="onboarding_fragment_button_start">Iniciar</string>
+    <string name="text_login_google_success_onboarding_fragment">Login com Google concluído</string>
 
     <!--HomeAuthFragment-->
     <string name="title_home_auth_fragment">Entrar</string>
@@ -41,6 +44,8 @@
     <string name="text_continue_social_network_register_fragment">ou continuar com</string>
     <string name="text_email_empty_register_fragment">Digite um e-mail válido</string>
     <string name="text_password_empty_register_fragment">Digite uma senha</string>
+    <string name="text_register_success_register_fragment">Cadastro concluído</string>
+    <string name="text_login_google_success_register_fragment">Login com Google concluído</string>
 
     <!--    LoginFragment-->
     <string name="title_login_fragment">Faça login na sua conta</string>
@@ -49,6 +54,7 @@
     <string name="text_button_sign_in_login_fragment">Entrar</string>
     <string name="text_forgot_password_login_fragment">Esqueceu a senha?</string>
     <string name="text_continue_social_network_login_fragment">ou continuar com</string>
+    <string name="text_login_success_fragment">Login concluído</string>
 
     <!--    ForgotFragment-->
     <string name="title_forgot_fragment">Crie sua nova senha</string>
