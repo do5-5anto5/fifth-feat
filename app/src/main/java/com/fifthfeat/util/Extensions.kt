@@ -9,7 +9,11 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
 import com.fifthfeat.R
+import com.fifthfeat.databinding.BottomSheetLogoutBinding
+import com.fifthfeat.presenter.authentication.activity.AuthActivity
 import com.fifthfeat.presenter.main.activity.MainActivity
+import com.fifthfeat.util.FirebaseHelper.Companion.signOut
+import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.snackbar.Snackbar
 
 fun Fragment.hideKeyboard() {
@@ -52,4 +56,28 @@ fun Fragment.goToMainNavigation() {
             }
         }, 2500
     )
+}
+
+fun Fragment.showBottomSheetLogout() {
+    val bottomSheetLogout = BottomSheetDialog(requireContext(), R.style.BottomSheetDialog)
+    val bottomSheetBinding = BottomSheetLogoutBinding.inflate(layoutInflater, null, false)
+
+    bottomSheetBinding.btnCancel.setOnClickListener {
+        bottomSheetLogout.dismiss()
+    }
+
+    bottomSheetBinding.btnConfirm.setOnClickListener {
+        logout()
+        bottomSheetLogout.dismiss()
+    }
+
+    bottomSheetLogout.setContentView(bottomSheetBinding.root)
+    bottomSheetLogout.show()
+}
+
+fun Fragment.logout() {
+    signOut()
+    activity?.finish()
+    val intent = Intent(requireContext(), AuthActivity::class.java)
+    startActivity(intent)
 }
