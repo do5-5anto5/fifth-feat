@@ -9,6 +9,7 @@ class FirebaseHelper {
         fun getAuth() = FirebaseAuth.getInstance()
         fun getCurrentUser() = FirebaseAuth.getInstance().currentUser != null
         fun getCurrentUserId() = FirebaseAuth.getInstance().currentUser?.uid ?: ""
+        fun signOut() = FirebaseAuth.getInstance().signOut()
         fun validError(error: String): Int {
             return when {
                 error.contains("There is no user record corresponding to this identifier") -> {

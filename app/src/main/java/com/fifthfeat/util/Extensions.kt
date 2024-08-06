@@ -2,6 +2,7 @@ package com.fifthfeat.util
 
 import android.content.Context
 import android.content.Intent
+import android.os.Build
 import android.os.Handler
 import android.os.Looper
 import android.view.inputmethod.InputMethodManager
@@ -9,8 +10,15 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
 import com.fifthfeat.R
+import com.fifthfeat.databinding.BottomSheetLogoutBinding
+import com.fifthfeat.presenter.authentication.activity.AuthActivity
+import com.fifthfeat.presenter.authentication.activity.AuthActivity.Companion.AUTHENTICATION_PARAMETER
+import com.fifthfeat.presenter.authentication.enums.AuthenticationDestinations
 import com.fifthfeat.presenter.main.activity.MainActivity
+import com.fifthfeat.util.FirebaseHelper.Companion.signOut
+import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.snackbar.Snackbar
+import java.io.Serializable
 
 fun Fragment.hideKeyboard() {
     val view = activity?.currentFocus
@@ -52,4 +60,40 @@ fun Fragment.goToMainNavigation() {
             }
         }, 2500
     )
+}
+
+fun Fragment.showBottomSheetLogout(destination: AuthenticationDestinations) {
+    val bottomSheetLogout = BottomSheetDialog(requireContext(), R.style.BottomSheetDialog)
+    val bottomSheetBinding = BottomSheetLogoutBinding.inflate(layoutInflater, null, false)
+
+    bottomSheetBinding.btnCancel.setOnClickListener {
+        bottomSheetLogout.dismiss()
+    }
+
+    bottomSheetBinding.btnConfirm.setOnClickListener {
+        logout(destination)
+        bottomSheetLogout.dismiss()
+    }
+
+    bottomSheetLogout.setContentView(bottomSheetBinding.root)
+    bottomSheetLogout.show()
+}
+
+fun Fragment.logout(destination: AuthenticationDestinations) {
+    signOut()
+    requireActivity().finish()
+    val intent = Intent(requireContext(), AuthActivity::class.java)
+    intent.putExtra(AUTHENTICATION_PARAMETER, destination)
+    startActivity(intent)
+}
+
+inline fun <reified T : Serializable>
+        Intent.getSerializableCompat(key: String): T? = when {
+
+    Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU ->
+        getSerializableExtra(
+            key,
+            T::class.java
+        )
+    else -> getSerializableExtra(key) as? T
 }

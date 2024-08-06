@@ -1,12 +1,13 @@
 package com.fifthfeat.presenter.main
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.fifthfeat.R
+import androidx.fragment.app.Fragment
 import com.fifthfeat.databinding.FragmentHomeBinding
+import com.fifthfeat.presenter.authentication.enums.AuthenticationDestinations.LOGIN_SCREEN
+import com.fifthfeat.util.showBottomSheetLogout
 
 class HomeFragment : Fragment() {
 
@@ -17,10 +18,21 @@ class HomeFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val view = binding.root
         return view
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        initListeners()
+    }
+
+    private fun initListeners() {
+        binding.btnLogout.setOnClickListener {
+            showBottomSheetLogout(LOGIN_SCREEN)
+        }
     }
 
     override fun onDestroyView() {
