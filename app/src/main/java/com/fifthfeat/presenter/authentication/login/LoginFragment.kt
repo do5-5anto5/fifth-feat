@@ -22,6 +22,7 @@ import com.fifthfeat.util.goToMainNavigation
 import com.fifthfeat.util.hideKeyboard
 import com.fifthfeat.util.initToolbar
 import com.fifthfeat.util.isEmailValid
+import com.fifthfeat.util.onNavigate
 import com.fifthfeat.util.showSnackBar
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
@@ -72,7 +73,7 @@ class LoginFragment : Fragment() {
                 )
             }
             btnForgotPassword.setOnClickListener {
-                findNavController().navigate(R.id.action_loginFragment_to_forgotFragment)
+                findNavController().onNavigate(R.id.action_loginFragment_to_forgotFragment)
             }
         }
     }

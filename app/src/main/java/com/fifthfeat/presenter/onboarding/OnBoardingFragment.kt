@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.fifthfeat.R
 import com.fifthfeat.databinding.FragmentOnBoardingBinding
+import com.fifthfeat.util.onNavigate
 
 class OnBoardingFragment : Fragment() {
     private var _binding: FragmentOnBoardingBinding? = null
@@ -28,7 +29,7 @@ class OnBoardingFragment : Fragment() {
 
     private fun initListeners() {
         binding.btnStart.setOnClickListener {
-            findNavController().navigate(R.id.action_onBoardingFragment_to_authentication)
+            findNavController().onNavigate(R.id.action_onBoardingFragment_to_authentication)
         }
     }
 
