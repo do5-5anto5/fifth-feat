@@ -13,6 +13,7 @@ import com.fifthfeat.databinding.FragmentAuthHomeBinding
 import com.fifthfeat.util.FirebaseHelper.Companion.getAuth
 import com.fifthfeat.util.OauthKey.DEFAULT_WEB_CLIENT_ID
 import com.fifthfeat.util.goToMainNavigation
+import com.fifthfeat.util.onNavigate
 import com.fifthfeat.util.showSnackBar
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
@@ -56,10 +57,10 @@ class AuthHomeFragment : Fragment() {
                 signInWithGoogle()
             }
             btnPasswordLogin.setOnClickListener {
-                findNavController().navigate(R.id.action_authHomeFragment_to_loginFragment)
+                findNavController().onNavigate(R.id.action_authHomeFragment_to_loginFragment)
             }
             btnRegister.setOnClickListener {
-                findNavController().navigate(R.id.action_authHomeFragment_to_registerFragment)
+                findNavController().onNavigate(R.id.action_authHomeFragment_to_registerFragment)
             }
         }
     }

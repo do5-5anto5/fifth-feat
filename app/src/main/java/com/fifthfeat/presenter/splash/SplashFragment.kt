@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.fifthfeat.R
 import com.fifthfeat.databinding.FragmentSplashBinding
+import com.fifthfeat.util.onNavigate
 
 class SplashFragment : Fragment() {
     private var _binding: FragmentSplashBinding? = null
@@ -32,7 +33,7 @@ class SplashFragment : Fragment() {
     private fun initSplashScreen() {
         Handler(Looper.getMainLooper()).postDelayed({
             run {
-                findNavController().navigate(R.id.action_splashFragment2_to_onBoardingFragment)
+                findNavController().onNavigate(R.id.action_splashFragment2_to_onBoardingFragment)
             }
         }, 3000)
     }
