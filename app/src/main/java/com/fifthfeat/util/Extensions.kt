@@ -9,6 +9,9 @@ import android.view.inputmethod.InputMethodManager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
+import androidx.navigation.NavController
+import androidx.navigation.NavDirections
+import androidx.navigation.NavOptions
 import com.fifthfeat.R
 import com.fifthfeat.databinding.BottomSheetLogoutBinding
 import com.fifthfeat.presenter.authentication.activity.AuthActivity
@@ -96,4 +99,30 @@ inline fun <reified T : Serializable>
             T::class.java
         )
     else -> getSerializableExtra(key) as? T
+}
+
+fun NavController.onNavigate(action: Int) {
+    this.navigate(
+        action,
+        null,
+        NavOptions.Builder()
+            .setEnterAnim(R.anim.enter)
+            .setExitAnim(R.anim.exit)
+            .setPopEnterAnim(R.anim.pop_enter)
+            .setPopExitAnim(R.anim.pop_exit)
+            .build()
+    )
+}
+
+fun NavController.onNavigate(nav: NavDirections) {
+    this.navigate(
+        nav.actionId,
+        nav.arguments,
+        NavOptions.Builder()
+            .setEnterAnim(R.anim.enter)
+            .setPopEnterAnim(R.anim.pop_enter)
+            .setExitAnim(R.anim.exit)
+            .setPopExitAnim(R.anim.pop_exit)
+            .build()
+    )
 }
