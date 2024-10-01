@@ -1,6 +1,6 @@
-# Fifth Feat – Small Business Starter Template
+# Fifth Feat – Starter Template
 
-This project offers an initial template for Android application development, with a focus on meeting the needs of small businesses. It serves as a basis for future projects, implementing a standard interface and essential functionalities.
+This project offers an initial template for Android native application development. It serves as a basis for future projects, implementing a standard interface and essential functionalities.
 
 ##Initial Features
 
@@ -9,7 +9,7 @@ This project offers an initial template for Android application development, wit
 ## Architecture and Development
 
 * **Architecture**
-    * MVVM
+    * MVVM / Clean Arch
 * **Cloud Services:**
     * Firebase
       * Authentication
@@ -29,7 +29,7 @@ This project offers an initial template for Android application development, wit
     * Google Play Services Authentication
         * Simplifies Google authentication and access to Google APIs in Android applications.
 
-## Roadmap
+## Roadmap (freezed)
 
 * **Product Management:**
 * Allow managers to add, edit and remove products.
